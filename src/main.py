@@ -5,21 +5,28 @@ from tensorflow import keras
 from openpose_functions import open_pose_to_image
 from image_process import load_img
 from skimage import transform
+from pathlib import Path
+
+# Get absolute base path
+BASE_DIR = Path(__file__).resolve().parent
+DOC_DIR = BASE_DIR.parent / "documentation"
+MODEL_DIR = BASE_DIR.parent / "models"
+EXAMPLE_POSES_DIR = BASE_DIR / "example_poses"
 
 poses = ['Cow-Face', 'Extended-Hand-to-Big-Toe', 'Half-Lord-of-the-Fishes',
          'Half-Moon', 'Warrior-I', 'Dancer', 'Extended-Triangle', 'Fire-Log', 'Goddess',
          'Lotus', 'Revolved-Side-Angle', 'Tree-Pose', 'Upward-Salute', 'Warrior-II']
 
 def md_to_string(filename):
-    result = ""
-    with open('../documentation/' + filename, 'r') as infile:
-        result += infile.read()
-    return result
+    file_path = DOC_DIR / filename
+    if not file_path.exists():
+        return f"**Error:** File `{filename}` not found."
+    return file_path.read_text()
 
 @st.cache(allow_output_mutation=True)
 def load_model(model_name):
-    model = tf.keras.models.load_model("../models/" + model_name, compile=False)
-    return model
+    model_path = MODEL_DIR / model_name
+    return tf.keras.models.load_model(str(model_path), compile=False)
 
 def run_app(original_img):
     with st.spinner("Processing image..."):
@@ -110,7 +117,14 @@ if sidebar_choice == sidebar_menu[0]:
         else:
             if pose_choice == pose:
                 st.write('Sample image of ' + pose + ':')
-                st.image('./example_poses/' + pose + '.png')
+
+                # Check if the image exists
+                image_path = EXAMPLE_POSES_DIR / f"{pose_choice}.png"
+                if image_path.exists():
+                    st.image(str(image_path))
+                else:
+                    st.warning(f"Sample image for {pose_choice} not found.")
+
                 st.write("All sample images are provided by the publicly available Yoga Pose Image "
                          + "classification dataset.")
                 st.write("Please view the 'About' section from the main menu to learn more.")
