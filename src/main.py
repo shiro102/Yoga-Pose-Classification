@@ -96,7 +96,7 @@ sidebar_menu = ['Practice Yoga', 'About']
 sidebar_choice = st.sidebar.selectbox('Menu', sidebar_menu)
 
 st.sidebar.write(" ------ ")
-st.sidebar.write("Last updated: 13 April 2022")  # TODO: update
+st.sidebar.write("Last updated: 10 April 2025")
 
 # MENU = PRACTICE YOGA
 if sidebar_choice == sidebar_menu[0]:
