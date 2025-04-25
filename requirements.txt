@@ -1,0 +1,10 @@
+streamlit==1.8.1
+tensorflow==2.7.0
+keras==2.7.0
+numpy==1.21.3
+opencv-python==4.5.5.64
+scikit-image==0.19.2
+urllib3==1.26.7
+protobuf==3.20.*
+altair==4.2.0
+matplotlib==3.5.1
