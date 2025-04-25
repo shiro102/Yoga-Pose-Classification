@@ -1,6 +1,7 @@
 # Yoga Pose Classification App
 
 Authors: Edouard Eltherington, Veronica Jack, Logan Parker, and Khai Hung Luong
+Production site is here: https://yoga-pose-classification-e8kg76w54mzxlgzkb8z3jb.streamlit.app/
 
 ## Table of Contents
 * [General Information](#general-information)
