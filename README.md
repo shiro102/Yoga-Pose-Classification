@@ -1,5 +1,4 @@
 # Yoga Pose Classification App
-COSC 490 Final Project due 11 April 2022
 
 Authors: Edouard Eltherington, Veronica Jack, Logan Parker, and Khai Hung Luong
 
