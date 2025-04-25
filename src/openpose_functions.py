@@ -1,11 +1,16 @@
 import cv2
 import math
+from pathlib import Path
+
 def open_pose_to_image(img):
 
     # We can choose different types of model here
     # Body-25
-    protoFile = "../openpose/models/pose/body_25/pose_deploy.prototxt"
-    weightsFile = "../openpose/models/pose/body_25/pose_iter_584000.caffemodel"
+    BASE_DIR = Path(__file__).resolve().parent
+    MODEL_DIR = BASE_DIR.parent / "openpose" / "models" / "pose" / "body_25"
+
+    protoFile = str(MODEL_DIR / "pose_deploy.prototxt")
+    weightsFile = str(MODEL_DIR / "pose_iter_584000.caffemodel")
     # MPI
     # protoFile = "../openpose/models/pose/mpi/pose_deploy_linevec_faster_4_stages.prototxt"
     # weightsFile = "../openpose/models/pose/mpi/pose_iter_160000.caffemodel"
