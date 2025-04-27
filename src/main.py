@@ -21,7 +21,7 @@ poses = ['Cow-Face', 'Extended-Hand-to-Big-Toe', 'Half-Lord-of-the-Fishes',
 # ✨ Set Page Configurations ✨
 st.set_page_config(
     page_title="Namaste - Yoga Pose Classifier",
-    page_icon=LOGO_DIR,
+    page_icon=str(LOGO_DIR),
     layout="centered",  # or "wide"
     initial_sidebar_state="expanded",  # or "collapsed"
 )
