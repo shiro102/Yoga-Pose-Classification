@@ -7,6 +7,15 @@ from image_process import load_img
 from skimage import transform
 from pathlib import Path
 
+
+# ✨ Set Page Configurations ✨
+st.set_page_config(
+    page_title="Namaste - Yoga Pose Classifier",
+    page_icon="project-logo.png",
+    layout="centered",  # or "wide"
+    initial_sidebar_state="expanded",  # or "collapsed"
+)
+
 # Get absolute base path
 BASE_DIR = Path(__file__).resolve().parent
 DOC_DIR = BASE_DIR.parent / "documentation"
