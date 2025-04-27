@@ -7,24 +7,25 @@ from image_process import load_img
 from skimage import transform
 from pathlib import Path
 
-
-# ✨ Set Page Configurations ✨
-st.set_page_config(
-    page_title="Namaste - Yoga Pose Classifier",
-    page_icon="project-logo.png",
-    layout="centered",  # or "wide"
-    initial_sidebar_state="expanded",  # or "collapsed"
-)
-
 # Get absolute base path
 BASE_DIR = Path(__file__).resolve().parent
 DOC_DIR = BASE_DIR.parent / "documentation"
 MODEL_DIR = BASE_DIR.parent / "models"
 EXAMPLE_POSES_DIR = BASE_DIR / "example_poses"
+LOGO_DIR = BASE_DIR / "project-logo.png"
 
 poses = ['Cow-Face', 'Extended-Hand-to-Big-Toe', 'Half-Lord-of-the-Fishes',
          'Half-Moon', 'Warrior-I', 'Dancer', 'Extended-Triangle', 'Fire-Log', 'Goddess',
          'Lotus', 'Revolved-Side-Angle', 'Tree-Pose', 'Upward-Salute', 'Warrior-II']
+
+# ✨ Set Page Configurations ✨
+st.set_page_config(
+    page_title="Namaste - Yoga Pose Classifier",
+    page_icon=LOGO_DIR,
+    layout="centered",  # or "wide"
+    initial_sidebar_state="expanded",  # or "collapsed"
+)
+
 
 def md_to_string(filename):
     file_path = DOC_DIR / filename
